@@ -14,6 +14,10 @@ RUN apt-get install -y nodejs
 # Install essentials
 RUN apt-get install -y build-essential
 
+# Install http-server
+RUN npm i -g http-server
+
+# Reject Angulars analytics request
 ENV NG_CLI_ANALYTICS=false
 
 # Install Angular's cli
