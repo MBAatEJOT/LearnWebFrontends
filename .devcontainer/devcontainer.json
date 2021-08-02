@@ -1,0 +1,22 @@
+{
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces",
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "eamodio.gitlens",
+    "quicktype.quicktype",
+    "mtxr.sqltools",
+    "dotjoshjohnson.xml",
+    "gruntfuggly.todo-tree",
+    "mtxr.sqltools-driver-mssql",
+    "hookyqr.beautify",
+    "dbaeumer.vscode-eslint"
+  ],
+  "forwardPorts": [],
+  "postCreateCommand": "/bin/bash /conf/artifacts.sh",
+  "name": "LearnWebFrontends"
+}
