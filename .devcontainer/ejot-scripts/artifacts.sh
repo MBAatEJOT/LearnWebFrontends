@@ -50,39 +50,6 @@ if [ -d ~/.npm ]; then
 	echo "; end auth token" >> ~/.npmrc
 	
 	npm i -g ejot-cli
-	
-	cd /workspaces/LearnWebFrontends/LearnWebFrontends.Client
-	npm i
-fi
-
-if [ -d ~/.dotnet ]; then
-	if [ ! -d ~/.nuget/NuGet ]; then
-		echo "Creating nuget folder"
-		mkdir -p ~/.nuget/NuGet
-	fi
-	echo "Set up .Net Core"
-	echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>" > ~/.nuget/NuGet/NuGet.Config
-	echo "<configuration>" >> ~/.nuget/NuGet/NuGet.Config
-	echo "  <packageSources>" >> ~/.nuget/NuGet/NuGet.Config
-	echo "    <add key=\"nuget.org\" value=\"https://api.nuget.org/v3/index.json\" protocolVersion=\"3\" />" >> ~/.nuget/NuGet/NuGet.Config
-	echo "    <add key=\"ejot-packages\" value=\"https://pkgs.dev.azure.com/EJOT-Dev/_packaging/ejot-packages/nuget/v3/index.json\" />" >> ~/.nuget/NuGet/NuGet.Config
-	echo "  </packageSources>" >> ~/.nuget/NuGet/NuGet.Config
-	echo "  <packageSourceCredentials>" >> ~/.nuget/NuGet/NuGet.Config
-	echo "    <ejot-packages>" >> ~/.nuget/NuGet/NuGet.Config
-	echo "        <add key=\"Username\" value=\"$mail\" />" >> ~/.nuget/NuGet/NuGet.Config
-	echo "        <add key=\"ClearTextPassword\" value=\"$token\" />" >> ~/.nuget/NuGet/NuGet.Config
-	echo "      </ejot-packages>" >> ~/.nuget/NuGet/NuGet.Config
-	echo "  </packageSourceCredentials>" >> ~/.nuget/NuGet/NuGet.Config
-	echo "</configuration>" >> ~/.nuget/NuGet/NuGet.Config
-
-	cd /workspaces/LearnWebFrontends
-	dotnet restore
-fi
-
-if [ -n "$seqtoken" ]; then
-	echo "Set up Seq API key"
-	cd /workspaces/LearnWebFrontends/LearnWebFrontends
-	dotnet user-secrets set "Seq:ApiKey" "$seqtoken"
 fi
 
 touch ~/.configured
