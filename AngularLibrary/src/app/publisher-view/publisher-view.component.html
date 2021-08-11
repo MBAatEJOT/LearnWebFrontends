@@ -1,0 +1,39 @@
+<mat-toolbar class = "centerHead">
+	<span>Publisher Details</span>
+ </mat-toolbar>
+
+<div class="main-div">
+
+<mat-card class="example-card">
+	<mat-card-header> 
+			
+			<span class="tab"></span>
+			<mat-icon mat-list-icon class="right-icon" (click)="GotoStartPage()">home</mat-icon>
+		 
+		<br>
+		 <div mat-card-avatar class="example-header-image"></div>
+	  <mat-card-title>{{item?.name}}</mat-card-title>
+	 
+	</mat-card-header>
+	<br>
+	<img mat-card-image src="assets/images/publishing.jpg" alt="BookPictures">
+
+	<mat-card-content  >
+		Books Written :
+		<mat-list>
+			<mat-list-item class = "click-item" *ngFor="let book of allBooks" (click)="showBookDetails(book)">
+			{{book.title}}
+			</mat-list-item>
+		</mat-list>  
+
+		<br> 
+	</mat-card-content>
+	<mat-card-actions class="right-icon" >
+		<button mat-raised-button (click)="GoBackPage()">Back</button>
+	
+		</mat-card-actions>
+ </mat-card>
+
+</div>
+
+	

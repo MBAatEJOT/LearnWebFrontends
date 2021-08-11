@@ -1,0 +1,29 @@
+<mat-toolbar class = "main-div">
+	<span>Books Library</span>
+ </mat-toolbar>
+
+<br>
+<br>
+
+ <div class="main-div">
+
+	<mat-card class="example-card">
+		
+		<mat-card-content  >
+			
+			<mat-list>
+				<div mat-subheader>Books Available:</div>
+				<mat-list-item *ngFor="let book of books">
+				  <mat-icon mat-list-icon>menu_book</mat-icon>
+				  <div mat-line class = "books-item" (click)="showDetails(book)" >{{book.title}}</div>
+				  <div mat-line>Location: {{book.location}} </div>
+				</mat-list-item>
+				
+			 </mat-list>
+		 
+		</mat-card-content>
+		
+	 </mat-card>
+	
+	</div>
+	

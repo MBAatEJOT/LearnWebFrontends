@@ -1,0 +1,39 @@
+<mat-toolbar class = "centerHead">
+	<span>Books Details</span>
+ </mat-toolbar>
+
+<div class="main-div">
+
+<mat-card class="example-card">
+	<mat-card-header>
+		
+		<mat-icon mat-list-icon class ="right-icon"  (click)="GotoStartPage()">home</mat-icon>
+	  <div mat-card-avatar class="example-header-image"></div>
+	  <mat-card-title>{{item?.title}}</mat-card-title>
+	  <mat-card-subtitle >Location: {{item?.location}}</mat-card-subtitle>
+	</mat-card-header>
+	<img mat-card-image src="assets/images/book_stack.jpg" alt="BookPictures">
+	<mat-card-content  >
+		
+		 Written by :
+
+	 <mat-list>
+		<mat-list-item class = "click-item" *ngFor="let author of allAuthors" (click)="showAuthorDetails(author)">
+		{{author.firstName}},{{author.lastName}} 
+		</mat-list-item>
+	</mat-list>  
+
+
+		<br> 
+		Published by :
+		<mat-list>
+			<mat-list-item class = "click-item" *ngFor="let publisher of allPublishers" (click)="showPublisherDetails(publisher)"> 
+				{{publisher.name}}
+			</mat-list-item>
+		</mat-list>
+	</mat-card-content>
+
+ </mat-card>
+
+</div>
+

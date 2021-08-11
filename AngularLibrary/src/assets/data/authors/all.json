@@ -1,0 +1,66 @@
+[
+	{
+		"id": 1,
+		"firstName": "Maximilian",
+		"lastName": "Vollendorf",
+		"books": [
+			1
+		]
+	},
+	{
+		"id": 2,
+		"firstName": "Frank",
+		"lastName": "Bongers",
+		"books": [
+			1
+		]
+	},
+	{
+		"id": 3,
+		"firstName": "Michael",
+		"lastName": "Wegelin",
+		"books": [
+			2
+		]
+	},
+	{
+		"id": 4,
+		"firstName": "Michael",
+		"lastName": "Englbrecht",
+		"books": [
+			2
+		]
+	},
+	{
+		"id": 5,
+		"firstName": "Adam",
+		"lastName": "Freeman",
+		"books": [
+			3
+		]
+	},
+	{
+		"id": 6,
+		"firstName": "Ugurlu",
+		"lastName": "Tugberk",
+		"books": [
+			4
+		]
+	},
+	{
+		"id": 7,
+		"firstName": "Alexander",
+		"lastName": "Zeitler",
+		"books": [
+			4
+		]
+	},
+	{
+		"id": 8,
+		"firstName": "Ali",
+		"lastName": "Kheyrollahi",
+		"books": [
+			4
+		]
+	}
+]

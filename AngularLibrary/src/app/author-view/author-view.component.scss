@@ -1,0 +1,50 @@
+.click-item {
+	margin: 10px;
+	cursor: pointer;
+}
+
+h6 {
+	text-align: center; 
+	font-size: larger;
+	font-weight: bolder;
+}
+
+ .rightbutton {
+	margin-right: 50;
+	float: right;
+}
+
+.example-card {
+	max-width: 400px;
+	align-self: center;
+ }
+ 
+ .example-header-image {
+	background-image: url('/assets/images/author1.jpg');
+	background-size: cover;
+ }
+ .main-div{
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+ }
+
+ .right-icon{
+	align-items: right;
+	justify-content: right;
+	justify-items: end;
+	display: flex;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.centerHead{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+span.tab{
+	padding: 0 90px; /* Or desired space*/
+}

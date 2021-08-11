@@ -1,0 +1,14 @@
+<h1 *ngIf="!isDisabled">{{title}}</h1>
+
+<div>
+	<button (click)="gotoTodoList()">Click me</button>
+	<a [routerLink]="'/todo'">Todo-Liste</a>
+</div>
+
+<button (click)="loadBooks()">Bücher laden</button>
+<a [routerLink] = "'/books'">Books</a>
+
+
+<div *ngFor="let b of books">
+	{{b.title}}
+</div>

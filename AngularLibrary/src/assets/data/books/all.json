@@ -1,0 +1,50 @@
+[
+	{
+		"id": 1,
+		"title": "jQuery - Das umfassende Handbuch",
+		"publishers": [
+			1
+		],
+		"location": "Büro 34",
+		"authors": [
+			1,
+			2
+		]
+	},
+	{
+		"id": 2,
+		"title": "SAP® - Schnittstellenprogrammierung",
+		"publishers": [
+			2
+		],
+		"location": "Büro 34",
+		"authors": [
+			3,
+			4
+		]
+	},
+	{
+		"id": 3,
+		"title": "Pro ASP.NET MVC 4",
+		"publishers": [
+			3
+		],
+		"location": "Büro 34",
+		"authors": [
+			5
+		]
+	},
+	{
+		"id": 4,
+		"title": "Pro ASP.NET Web API",
+		"publishers": [
+			3
+		],
+		"location": "Büro 34",
+		"authors": [
+			6,
+			7,
+			8
+		]
+	}
+]

@@ -1,0 +1,23 @@
+[
+	{
+		"id": 1,
+		"name": "Galileo Computing",
+		"books": [
+			1
+		]
+	},
+	{
+		"id": 2,
+		"name": "SAP PRESS",
+		"books": [
+			2
+		]
+	},
+	{
+		"id": 3,
+		"name": "Apress",
+		"books": [
+			3, 4
+		]
+	}
+]
