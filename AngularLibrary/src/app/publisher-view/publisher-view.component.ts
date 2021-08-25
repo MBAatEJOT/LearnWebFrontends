@@ -1,4 +1,4 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { BooksComponent } from "../books/books.component";
 import { BooksService, IBook } from "../services/books.service";
@@ -7,67 +7,52 @@ import { PublisherService, IPublisher } from "../services/publisher.service";
 
 
 @Component({
-  selector: 'app-publisher-view',
-  templateUrl: './publisher-view.component.html',
-  styleUrls: ['./publisher-view.component.scss']
+	selector: 'app-publisher-view',
+	templateUrl: './publisher-view.component.html',
+	styleUrls: ['./publisher-view.component.scss']
 })
 export class PublisherViewComponent implements OnInit {
 
 	private onBooksLoaded: Subscription;
+	private onPublishersLoadedByBook :Subscription;
 	public allBooks: IBook[] = [];
 	public bookTitles: string[] = [];
-	public item: IPublisher | null = null;
+
+	public pitem: IPublisher = null;
 	private _publisherId: number;
+	public isLoading = false;
 
-	private _onBookLoadedSubscription: Subscription = null;
-	private _onPublisherLoadedSubscription: Subscription = null;
+	constructor(private _route: ActivatedRoute, private _router: Router, private _service: BooksService,
+		private _publisherService: PublisherService) {
+	}
 
-	constructor(private _route: ActivatedRoute, private _router: Router , private _service: BooksService,
-					private _publisherService:PublisherService) {
-}
+	public ngOnInit() {
 
-public ngOnDestroy(): void {
-	this._onPublisherLoadedSubscription.unsubscribe();
-	this._onBookLoadedSubscription.unsubscribe();
-
-}
-	public async ngOnInit(): Promise<void> {
-		await new Promise(f => setTimeout(f, 1000));
-
-		this._route.params.subscribe(
+		this.onPublishersLoadedByBook = this._service.onBooksLoadedByPublisher.subscribe(
 			next => {
+				this.allBooks = next;
+			}
+		);
+
+		this.isLoading = true;
+		this._route.params.subscribe(
+			async next => {
 				this._publisherId = Number(next["id"]);
-				console.log(this._publisherId);
 				if (!!this._publisherId) {
-					this._publisherService.getById(this._publisherId);
+					this.pitem = await this._publisherService.getById(this._publisherId);
+					this._service.getByPublisherId(this.pitem.id);
+					this.isLoading= false;
+					console.log(this.pitem);
 				}
 
 			});
-
-		this._onPublisherLoadedSubscription = this._publisherService.onPublisherLoaded.subscribe(
-			next => {
-				this.item = next;
-				console.log(this.item);
-				for (let i = 0; i < this.item.books.length; i++) {
-					const element = this.item.books[i];
-					this._service.getById(element);
-				}
-			}
-		);
-
-		this._onBookLoadedSubscription = this._service.onBookLoaded.subscribe(
-			next => {
-				this.allBooks.push(next);
-			}
-		);
-			}
+	}
 
 	public showBookDetails(book: IBook): void {
 
-		if (book)
-		{
-				const item = book;
-				this._router.navigate(["/bookView", item.id]);
+		if (book) {
+			const item = book;
+			this._router.navigate(["/bookView", item.id]);
 		}
 	}
 

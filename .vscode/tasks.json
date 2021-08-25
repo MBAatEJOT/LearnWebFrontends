@@ -26,6 +26,16 @@
 			"options": {
 				"cwd": "${workspaceFolder}/LearnWebFrontends.Client"
 			}
+		},
+		{
+			"command": "dotnet",
+			"label": "Build Server",
+			"args": [
+				"build",
+				"${workspaceRoot}/AngularLibrary/Server/LearnCSharp.csproj",
+				"--no-restore"
+			],
+			"problemMatcher": "$msCompile"
 		}
 	],
 	"inputs": [

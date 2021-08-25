@@ -1,0 +1,56 @@
+
+h5 {
+	text-align: center; 
+	font-size: larger;
+}
+
+div {
+	text-align: center;
+	font-size: large;
+}
+
+.cursor {
+	margin: 10px;
+	cursor: pointer;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+ }
+ 
+ .gridlist-div{
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+ }
+
+ .mat-list-icon {
+	color: rgba(0, 0, 0, 0.54);
+ }
+
+ .example-card {
+	max-width: 500px;
+	 align-self: center;
+
+ }
+ 
+ .main-div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+ }
+
+ .flex {
+   flex: 1 1 auto;
+}    
+
+span.tab{
+	padding: 0 90px; /* Or desired space*/
+}
+
+span.tabbing{
+	padding: 0 20px;
+}

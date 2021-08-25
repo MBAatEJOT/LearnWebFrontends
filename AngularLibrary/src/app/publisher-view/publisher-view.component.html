@@ -4,7 +4,7 @@
 
 <div class="main-div">
 
-<mat-card class="example-card">
+<mat-card class="example-card" *ngIf="!isLoading">
 	<mat-card-header> 
 			
 			<span class="tab"></span>
@@ -12,7 +12,7 @@
 		 
 		<br>
 		 <div mat-card-avatar class="example-header-image"></div>
-	  <mat-card-title>{{item?.name}}</mat-card-title>
+	  <mat-card-title>{{pitem?.name}}</mat-card-title>
 	 
 	</mat-card-header>
 	<br>

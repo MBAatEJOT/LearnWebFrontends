@@ -13,79 +13,69 @@ import { nextTick } from "process";
 	styleUrls: ["./book-view.component.scss"]
 })
 export class BookViewComponent implements OnInit, OnDestroy {
-	private onAuthorsLoaded: Subscription;
+
 	public allAuthors: IAuthor[] = [];
 	private _bookId: number;
-	private _onBookLoadedSubscription: Subscription = null;
-	private _onPublisherLoadedSubscription: Subscription = null;
-	private _onAuthorLoadedSubscription: Subscription = null;
 	public books: IBook[] = [];
 	public item: IBook = null;
-	public authorNames:string[] = [];
-	public publisherNames:string[] = [];
+	// public authorNames:string[] = [];
+	// public publisherNames:string[] = [];
 	public booksLoaded = false;
+	public isLoading = false;
+	public publishers: IPublisher[] = [];
+	public authors: IAuthor[] = [];
 
 	public allPublishers: IPublisher[] = [];
 	private bookPublishers: IPublisher[] = [];
 	public publishersNames: string[] = [];
 	private onPublishersLoaded: Subscription;
+	private onPublishersLoadedByBook: Subscription;
+
+	private onAuthorsLoadedByBook:Subscription;
 
 	constructor(private _route: ActivatedRoute, private _router: Router, private _service: BooksService, private _authorService: AuthorService,
 		           private _publisherService: PublisherService) {
 	
 	}
-	public ngOnDestroy(): void {
-		this._onBookLoadedSubscription.unsubscribe();
-		this._onPublisherLoadedSubscription.unsubscribe();
-		this._onAuthorLoadedSubscription.unsubscribe();
-	}
+
 
 	public ngOnInit() {
+		this.isLoading = true;
 
-		this._onPublisherLoadedSubscription = this._publisherService.onPublisherLoaded.subscribe(
-			next => {
-				this.allPublishers.push(next);
-				this.item.publishersName.push(next.name);
-				console.log(this.item.publishersName);
-
+		this.onPublishersLoadedByBook = this._publisherService.onPublishersLoadedByBook.subscribe(
+			next => 
+			{
+				this.publishers = next;
+				// console.log(this.publishers);
 			}
 		);
-		this._onAuthorLoadedSubscription = this._authorService.onAuthorLoaded.subscribe(
+
+		this.onAuthorsLoadedByBook = this._authorService.onAuthorsLoadedByBook.subscribe(
 			next => {
-				this.allAuthors.push(next);
-				this.item.authorsName.push(next.firstName + "," + next.lastName);
-				console.log(this.item.authorsName);
+				this.authors = next;
+				// console.log(this.authors);
 			}
 		);
-		this._onBookLoadedSubscription = this._service.onBookLoaded.subscribe(
-			next => {
-				this.item = next;
-				this.item.authorsName = this.authorNames;
-				this.item.publishersName = this.publisherNames;
-				this.books.push(next);
-				this.booksLoaded = true;
-
-				for (let i = 0; i < this.item.publishers.length; i++) {
-					const element = this.item.publishers[i];
-					this._publisherService.getById(element);
-				}
-				for (let i = 0; i < this.item.authors.length; i++) {
-					const authorElement = this.item.authors[i];
-					this._authorService.getById(authorElement);
-
-							}
-			}
-		);
+		
+		
 		this._route.params.subscribe(
-			next => {
+			async next => {
 				this._bookId = Number(next["id"]);
 				if (!!this._bookId) {
-					this._service.getById(this._bookId);
+					this.item = await this._service.getById(this._bookId);
+					this._publisherService.getByBookId(this.item.id);
+					this._authorService.getByBookId(this.item.id);
+					console.log(this.item);
+					this.isLoading = false;
 				}
 			}
 
 		);
 
+	}
+
+	public ngOnDestroy() {
+		this.onPublishersLoadedByBook.unsubscribe();
 	}
 
 	public showPublisherDetails(publisher: IPublisher): void {

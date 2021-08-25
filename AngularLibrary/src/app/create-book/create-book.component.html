@@ -1,0 +1,53 @@
+
+<div class="example-container">
+<form name="createBookForm" #createBookForm="ngForm">
+	<mat-dialog-content>
+	<p>
+		<mat-form-field appearance="fill">
+			<mat-label>Book Title</mat-label>
+			<input matInput placeholder="Placeholder" [(ngModel)]="model.title" id="title" name="title" #title="ngModel" required>
+			<mat-error *ngIf="title.errors && title.errors.required">Feld muss ausgefüllt werden!</mat-error>
+		 </mat-form-field>
+		
+	</p>
+	
+	<p>
+	<mat-form-field appearance="fill">
+		<mat-label>Book Location</mat-label>
+		<input matInput placeholder="Placeholder" [(ngModel)]="model.location" id="location" name="location" #location="ngModel" required>
+		<mat-error *ngIf="location.errors && location.errors.required">Feld muss ausgefüllt werden!</mat-error>
+	 </mat-form-field>
+	</p>
+
+<div>
+		<mat-form-field appearance="fill">
+		  <mat-label>Authors</mat-label>
+		  <mat-select multiple [(ngModel)]="model.AuthorIds" id="authors" name="authors" #authors="ngModel" required>
+			 <mat-option *ngFor="let author of authorList" [value]="author.id" >{{author.firstName}},{{author.lastName}}</mat-option>
+			 <mat-error *ngIf="authors.errors && authors.errors.required">Feld muss ausgefüllt werden!</mat-error>
+		  </mat-select>
+		</mat-form-field>
+	  <mat-icon mat-list-icon class = "cursor" (click)="AddAuthors()">add_circle_outline</mat-icon>
+</div>
+
+
+	 <div>
+	 <mat-form-field appearance="fill">
+		<mat-label>Publishers</mat-label>
+		<mat-select multiple [(ngModel)]="model.PublisherIds" id="Publishers" name="Publishers" #publishers="ngModel" required>
+		  <mat-option *ngFor="let publisher of publisherList" [value]="publisher.id">{{publisher.name}}</mat-option>
+		  <mat-error *ngIf="publishers.errors && publishers.errors.required">Feld muss ausgefüllt werden!</mat-error>
+		</mat-select>
+	 </mat-form-field>
+	 <mat-icon mat-list-icon class = "cursor" (click)="AddPublishers()">add_circle_outline</mat-icon>
+	</div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+	<button mat-raised-button color = "primary" [disabled]="createBookForm.form.invalid || createBookForm.form.pristine" (click)="onClick()" [mat-dialog-close]= "true">Save</button> 
+	<span class="tab"></span>
+	 <button mat-raised-button color="accent" mat-dialog-close>Cancel</button> 
+	
+	</mat-dialog-actions>
+</form>
+ </div>

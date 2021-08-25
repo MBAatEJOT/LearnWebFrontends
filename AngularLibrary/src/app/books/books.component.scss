@@ -26,7 +26,7 @@ div {
  }
 
  .example-card {
-	max-width: 100px;
+	max-width: 400px;
 	align-self: center;
  }
 
@@ -42,7 +42,7 @@ div {
  }
 
  .example-card {
-	max-width: 500px;
+	max-width: 600px;
 	align-self: center;
  }
  
@@ -50,6 +50,22 @@ div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
+	// background: url('../../assets/images/bg.jpg') no-repeat center center fixed;
  }
+ .right-icon{
+	align-items: right;
+	justify-content: right;
+	text-align: right;
 
+	margin: 10px;
+	cursor: pointer;
+}
 
+span.tab{
+	padding: 0 125px; 
+}
+
+span.tabbing{
+	padding: 0 20px;
+}

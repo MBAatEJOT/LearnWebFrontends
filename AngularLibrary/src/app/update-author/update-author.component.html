@@ -1,0 +1,35 @@
+
+<mat-toolbar class = "main-div">
+	<span>Update AUthors</span>
+ </mat-toolbar>
+<br>
+<br>
+
+ <div class="main-div">
+	<form name="updateAuthorForm" #updateAuthorForm="ngForm">
+	<mat-card class="example-card">
+		
+		<mat-card-content  >
+			<mat-form-field appearance="fill">
+				<mat-label>First Name</mat-label>
+				<input matInput placeholder="xyz" [(ngModel)]="model.firstName" id="firstName" #fname="ngModel" name="firstName" required>
+				<mat-error *ngIf="fname.errors && fname.errors.required">Feld muss ausgefüllt werden!</mat-error>
+			 </mat-form-field>
+		 <br>
+			 <mat-form-field appearance="fill">
+				 <mat-label>Last Name</mat-label>
+				 <input matInput placeholder="xyz" [(ngModel)]="model.lastName" id="lastName" #lname="ngModel" name="lastName" required>
+				 <mat-error *ngIf="lname.errors && lname.errors.required">Feld muss ausgefüllt werden!</mat-error>
+			  </mat-form-field>
+			<br>
+			 
+		</mat-card-content>
+		<mat-dialog-actions>
+			<button mat-raised-button mat-dialog-close color="primary" [disabled]="updateAuthorForm.form.invalid || updateAuthorForm.form.pristine" (click)="onClick()">Update</button>
+			<span class="tab"></span>
+			<button mat-raised-button color="accent" (click)="GoBackPage()">Back</button> 
+		</mat-dialog-actions>
+		
+	 </mat-card>
+	</form>
+	</div>

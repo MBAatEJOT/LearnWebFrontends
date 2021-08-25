@@ -4,7 +4,7 @@
 
 <div class="main-div">
 
-<mat-card class="example-card">
+<mat-card class="example-card" *ngIf="!onLoading">
 	<mat-card-header>
 		<span class="tab"></span>
 	<mat-icon mat-list-icon  (click)="GotoStartPage()">home</mat-icon>
@@ -14,9 +14,8 @@
 	</mat-card-header>
 	<br>
 	<img mat-card-image src="assets/images/author1.jpg" alt="BookPictures">
-
+	
 	<mat-card-content  >
-		
 		Books Written :
 	<mat-list>
 		<mat-list-item class = "click-item" *ngFor="let book of allBooks" (click)="showBookDetails(book)"> {{book.title}} 
@@ -24,9 +23,8 @@
 	</mat-list> 
 
 	</mat-card-content>
-	<mat-card-actions class ="right-icon" >
+	<mat-card-actions class ="click-item" >
 	<button mat-raised-button (click)="GoBackPage()">Back</button>
-	
 	</mat-card-actions>
  </mat-card>
 

@@ -1,0 +1,62 @@
+
+h5 {
+	text-align: center; 
+	font-size: larger;
+}
+
+div {
+	text-align: center;
+	font-size: large;
+}
+
+.cursor {
+	margin: 10px;
+	cursor: pointer;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+ 
+ table {
+	width: 50%;
+	
+ }
+
+ .example-card {
+	max-width: 400px;
+	align-self: center;
+ }
+
+ .gridlist-div{
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+ }
+
+ .mat-list-icon {
+	color: rgba(0, 0, 0, 0.54);
+ }
+
+ .example-card {
+	max-width: 500px;
+	align-self: center;
+ }
+ 
+ .main-div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+ }
+
+span.tab{
+	padding: 0 90px;
+}
+
+span.tabbing{
+	padding: 0 20px;
+}
+

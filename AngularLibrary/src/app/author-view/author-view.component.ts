@@ -13,11 +13,11 @@ import { AuthorService, IAuthor } from "../services/author.service";
 export class AuthorViewComponent implements OnInit {
 
 	private onBooksLoaded: Subscription;
+	private onBooksLoadedByAuthor: Subscription;
 	public allBooks: IBook[] = [];
 	public item: IAuthor | null = null;
 	private _authorId: number;
-	private _onAuthorLoadedSubscription: Subscription = null;
-	private _onBookLoadedSubscription: Subscription = null;
+	public onLoading = false;
 
 	constructor(private _route: ActivatedRoute, private _router: Router , private _service: BooksService,
 					        private _authorService: AuthorService) {
@@ -26,43 +26,36 @@ export class AuthorViewComponent implements OnInit {
 		next => this.allBooks = next
 ); }
 
-public ngOnDestroy(): void {
-	this.onBooksLoaded.unsubscribe();
-	this._onAuthorLoadedSubscription.unsubscribe();
 
-}
-	public async ngOnInit(): Promise<void> {
 
-		await new Promise(f => setTimeout(f, 1000));
+	public  ngOnInit() {
 
-		this._route.params.subscribe(
+
+		this.onBooksLoadedByAuthor = this._service.onBooksLoadedByAuthor.subscribe(
 			next => {
+				this.allBooks = next;
+				console.log(next);
+				console.log(this.allBooks);
+			}
+		);
+
+		this.onLoading = true;
+		this._route.params.subscribe(
+			async next => {
 				this._authorId = Number(next["id"]);
 				if (!!this._authorId) {
-					this._authorService.getById(this._authorId);
+					this.item = await this._authorService.getById(this._authorId);
+					this._service.getByAuthorId(this.item.id);
+					this.onLoading = false;
+					console.log(this.item);
 				}
 
 			});
 
-		this._onAuthorLoadedSubscription = this._authorService.onAuthorLoaded.subscribe(
-			next => {
-				this.item = next;
-				console.log(this.item);
-				for (let i = 0; i < this.item.books.length; i++) {
-					const element = this.item.books[i];
-					console.log(element);
-					this._service.getById(element);
-				}
 			}
-		);
 
-		this._onBookLoadedSubscription = this._service.onBookLoaded.subscribe(
-			next => {
-				this.allBooks.push(next);
-				console.log(this.allBooks);
-			}
-		);
-			}
+			
+
 
 	public showBookDetails(book: IBook): void {
 

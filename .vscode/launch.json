@@ -15,6 +15,20 @@
 			"skipFiles": [
 				"<node_internals>/**"
 			]
+		},
+		{
+			"name": "Server",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "Build Server",
+			"program": "${workspaceFolder}/AngularLibrary/Server/bin/Debug/AngularLibrary.dll",
+			"args": [],
+			"cwd": "${workspaceFolder}/AngularLibrary",
+			"stopAtEntry": false,
+			"internalConsoleOptions": "openOnSessionStart",
+			"env": {
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			}
 		}
 	]
 }

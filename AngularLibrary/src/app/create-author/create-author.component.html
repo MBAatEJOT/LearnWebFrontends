@@ -1,0 +1,32 @@
+
+<div class="example-container">
+	<form name="createBookForm">
+		<mat-dialog-content>
+		<p>
+			<mat-form-field appearance="fill">
+				<mat-label>FirstName</mat-label>
+				<input matInput placeholder="Placeholder" [(ngModel)]="model.firstName" id="title" name="title" #fname="ngModel" required>
+				<mat-error *ngIf="fname.errors && fname.errors.required">Feld muss ausgefüllt werden!</mat-error>
+			 </mat-form-field>
+			
+		</p>
+		
+		<p>
+		<mat-form-field appearance="fill">
+			<mat-label>LastName</mat-label>
+			<input matInput placeholder="Placeholder" [(ngModel)]="model.lastName" id="lastName" name="lastName" #lname="ngModel" required>
+			<mat-error *ngIf="lname.errors && lname.errors.required">Feld muss ausgefüllt werden!</mat-error>
+		 </mat-form-field>
+		</p>
+	
+		 
+	</mat-dialog-content>
+	<mat-dialog-actions>
+		<button mat-raised-button color="primary" (click)="onClick()" [mat-dialog-close]= "true">Save</button> 
+		<span class="tab"></span>
+		 <button mat-raised-button color="accent" mat-dialog-close>Cancel</button> 
+		
+		</mat-dialog-actions>
+	</form>
+	 </div>
+	

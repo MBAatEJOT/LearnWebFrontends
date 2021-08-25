@@ -1,0 +1,79 @@
+// .click-item {
+// 	margin: 10px;
+// 	cursor: pointer;
+// }
+
+// h6 {
+// 	text-align: center; 
+// 	font-size: larger;
+// 	font-weight: bolder;
+// }
+
+//  .center {
+// 	margin-left: auto;
+// 	margin-right: auto;
+//  }
+
+//  .example-card {
+// 	max-width: 800px;
+// 	align-self: center;
+// 	align-items: center;
+//  }
+ 
+//  .example-header-image {
+// 	background-image: url('/assets/images/Library.jpg');
+// 	background-size: cover;
+//  }
+//  .main-div{
+// 	height: 90vh;
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+//  }
+
+
+// .centerHead{
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// }
+
+// .right-icon{
+// 	align-items: right;
+// 	justify-content: right;
+// 	display: flex;
+// 	margin: 10px;
+// 	cursor: pointer;
+// }
+
+// span.tab{
+// 	padding: 0 50px; 
+// }
+
+.example-container {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+ }
+ 
+ .example-is-mobile .example-toolbar {
+	position: fixed;
+	z-index: 2;
+ }
+ 
+ h1.example-app-name {
+	margin-left: 580px;
+ }
+ 
+ .example-sidenav-container {
+	 flex: 1;
+ }
+ 
+ .example-is-mobile .example-sidenav-container {
+	flex: 1 0 auto;
+ }
+ 

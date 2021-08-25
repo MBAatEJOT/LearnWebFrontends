@@ -1,0 +1,21 @@
+
+<div class="example-container">
+	<form name="createPublisherForm">
+		<mat-dialog-content>
+		<p>
+			<mat-form-field appearance="fill">
+				<mat-label>Name</mat-label>
+				<input matInput placeholder="Placeholder" [(ngModel)]="model.name" id="name" name="name" #name="ngModel" required>
+				<mat-error *ngIf="name.errors && name.errors.required">Feld muss ausgefüllt werden!</mat-error>
+			 </mat-form-field>
+			
+		</p> 
+	</mat-dialog-content>
+	<mat-dialog-actions>
+		<button mat-raised-button color="primary" (click)="onClick()" [mat-dialog-close]= "true">Save</button> 
+		<span class="tab"></span>
+		 <button mat-raised-button color="accent" mat-dialog-close>Cancel</button> 
+		
+		</mat-dialog-actions>
+	</form>
+	 </div>

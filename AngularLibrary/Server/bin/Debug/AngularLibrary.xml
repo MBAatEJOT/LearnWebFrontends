@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AngularLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:AngularLibrary.Controllers.AuthorController">
+            <summary>
+            Author Controller
+            </summary>
+        </member>
+        <member name="M:AngularLibrary.Controllers.AuthorController.GetList">
+            <summary>
+            Returns a list of all Authors
+            </summary>
+            <returns>All Authors</returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.AuthorController.GetListbyID(System.Int32)">
+            <summary>
+            To retrieve Authors by id
+            </summary>
+            <param name="id"></param>
+            <returns>Author with id</returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.AuthorController.UpdateAuthor(System.Int32,AngularLibrary.Entity.Author)">
+            <summary>
+            To update a row in the Database for Author .
+            </summary>
+            <param name="id"></param>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.AuthorController.CreateAuthor(AngularLibrary.Entity.Author)">
+            <summary>
+            To create a new Author row in Database
+            </summary>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.AuthorController.DeleteAuthor(System.Int32)">
+            <summary>
+            To Delete a new Author row in Database
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AngularLibrary.Controllers.BookController">
+            <summary>
+            Book Controller to fetch api for Books module
+            </summary>
+        </member>
+        <member name="M:AngularLibrary.Controllers.BookController.GetList">
+            <summary>
+            Returns a list of all books
+            </summary>
+            <returns>All books</returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.BookController.GetListbyID(System.Int32)">
+            <summary>
+            To retrieve Books by id
+            </summary>
+            <param name="id"></param>
+            <returns>Book with id</returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.BookController.UpdateBook(System.Int32,AngularLibrary.Entity.Book)">
+            <summary>
+            To update the books
+            </summary>
+            <param name="id"></param>
+            <param name="book"></param>
+            <returns>updated book</returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.BookController.CreateBook(AngularLibrary.Entity.Book)">
+            <summary>
+            To create a new row of Books in the Database
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.BookController.DeleteBook(System.Int32)">
+            <summary>
+            To Delete a row of Books in the Database 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AngularLibrary.Controllers.PublisherController">
+            <summary>
+            Publisher controller
+            </summary>
+        </member>
+        <member name="M:AngularLibrary.Controllers.PublisherController.GetList">
+            <summary>
+            Returns a list of all Publishers
+            </summary>
+            <returns>All Publisher</returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.PublisherController.GetListbyID(System.Int32)">
+            <summary>
+            To retrieve Publishers by id
+            </summary>
+            <param name="id"></param>
+            <returns>Publisher with id</returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.PublisherController.UpdatePublisher(System.Int32,AngularLibrary.Entity.Publisher)">
+            <summary>
+            To Update the Publisher row in Database
+            </summary>
+            <param name="id"></param>
+            <param name="publisher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.PublisherController.CreatePublisher(AngularLibrary.Entity.Publisher)">
+            <summary>
+            To create an Publisher row in Database
+            </summary>
+            <param name="publisher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AngularLibrary.Controllers.PublisherController.DeletePublisher(System.Int32)">
+            <summary>
+            To delete a row in the Publisher record in the Database
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AngularLibrary.Program">
+            <summary>
+            Main class for this project.
+            </summary>
+        </member>
+        <member name="M:AngularLibrary.Program.Main(System.String[])">
+            <summary>
+            Main method for this project.
+            </summary>
+            <param name="args">The arguments passed to the app.</param>
+        </member>
+        <member name="M:AngularLibrary.Program.BuildWebHost(System.String[])">
+            <summary>
+            Builds the web host.
+            </summary>
+            <param name="args">The arguments passed via the console.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Hosting.IWebHost" /> reference.</returns>
+        </member>
+        <member name="T:AngularLibrary.Startup">
+            <summary>
+            The start up class for this project.
+            </summary>
+        </member>
+        <member name="M:AngularLibrary.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="M:AngularLibrary.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+            </summary>
+            <param name="services">The service collection.</param>
+        </member>
+        <member name="M:AngularLibrary.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Logging.ILoggerFactory,System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{AngularLibrary.Startup})">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">The current app builder.</param>
+            <param name="env">The hosting environment.</param>
+            <param name="loggerFactory">The logger factory.</param>
+            <param name="provider">The current service provider.</param>
+            <param name="logger">The logger of this class.</param>
+        </member>
+    </members>
+</doc>

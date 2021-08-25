@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { BooksService, IBook } from "../services/books.service";
-import { AuthorService, IAuthor } from "../services/author.service";
-import { LayoutModule } from '@angular/cdk/layout';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { CreateBookComponent } from "../create-book/create-book.component";
 
 @Component({
 	selector: 'app-books',
@@ -10,11 +11,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 	styleUrls: ['./books.component.scss']
 })
 export class BooksComponent implements OnInit {
-	public authorName = "";
 	public books: IBook[] = [];
-	displayedColumns: string[] = ['image','title', 'location'];
 	public booksLoaded: Boolean = false;
-	constructor(private _router: Router, private _bookService: BooksService) { }
+	constructor(private _router: Router, private _bookService: BooksService,public dialog: MatDialog) { }
 
 	public ngOnInit(): void {
 		this._bookService.onBooksLoaded.subscribe(
@@ -26,9 +25,6 @@ export class BooksComponent implements OnInit {
 		console.log(this.books);
 	}
 
-	selectedBook?: IBook;
-	authors?: IAuthor;
-
 	public showDetails(book: IBook): void {
 
 		const item = book;
@@ -36,8 +32,43 @@ export class BooksComponent implements OnInit {
 		this._router.navigate(["/bookView", item.id]);
 	}
 
+	public updateDetails(book: IBook): void {
+
+		const item = book;
+		console.log(item);
+		this._router.navigate(["/updateBook", item.id]);
+	}
+	public deleteDetails(book: IBook)
+	{
+		const confirmDialog = this.dialog.open(ConfirmDialogComponent, {
+			data: {
+			  title: 'Confirm Remove Book',
+			  message: 'Are you sure, you want to remove the Book: ' + book.title
+			}
+		 });
+		 confirmDialog.afterClosed().subscribe(result => {
+			if (result === true) {
+		this._bookService.deleteBook(book.id)  ;
+		
+		 }
+		 
+		 });
+		 this._bookService.get(true);
+
+		
+	  }
+	
+	public addBook()
+	{
+		this.dialog.open(CreateBookComponent);
+
+	}
+	
+	public GotoStartPage(): void {
+		this._router.navigate(["/"]);
+	}
+
+	public GoBackPage(): void {
+		window.history.back();
+	}
 }
-
-
-
-
