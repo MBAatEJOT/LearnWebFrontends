@@ -2,7 +2,9 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "remoteEnv": {
-    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
+		"FULL_NAME": "${localEnv:FULL_NAME}",
+		"USER_MAIL": "${localEnv:USER_MAIL}"
   },
   "extensions": [
     "ms-azuretools.vscode-docker",
