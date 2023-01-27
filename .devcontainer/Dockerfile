@@ -6,7 +6,7 @@ RUN apt-get update \
 	&& apt-get install -y curl
 
 # Set up node.js repository
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 
 # Install node.js
 RUN apt-get install -y nodejs
@@ -21,4 +21,4 @@ RUN npm i -g http-server
 ENV NG_CLI_ANALYTICS=false
 
 # Install Angular's cli
-RUN npm i -g @angular/cli@^11
+RUN npm i -g @angular/cli@^14
