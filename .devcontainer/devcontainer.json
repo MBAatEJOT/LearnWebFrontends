@@ -16,7 +16,9 @@
     "hookyqr.beautify",
     "dbaeumer.vscode-eslint"
   ],
-  "forwardPorts": [],
-  "postCreateCommand": "/bin/bash /conf/artifacts.sh",
+  "forwardPorts": [
+    4200
+  ],
+  "postCreateCommand": "/bin/bash /conf/setup.sh",
   "name": "LearnWebFrontends"
 }
