@@ -23,16 +23,10 @@ else
 	token="${TOKEN_AZURE}"
 fi
 
-if [ -z "${TOKEN_SEQ_LEARNWEBFRONTENDS}" ]; then
-	echo "No Seq API key found please set manually by using 'dotnet user-secrets' set..."
-else
-	seqtoken="${TOKEN_SEQ_LEARNWEBFRONTENDS}"
-fi
-
 git config --global user.name "$name"
 git config --global user.email "$mail"
 
-if [ -d ~/.npm ]; then
+if [ -x "$(command -v npm)" ]; then
 	b64=`echo -n $token | base64`
 	
 	echo "Set up node.js"
@@ -48,8 +42,6 @@ if [ -d ~/.npm ]; then
 	echo "//pkgs.dev.azure.com/EJOT-Dev/_packaging/ejot-packages/npm/:_password=$b64" >> ~/.npmrc
 	echo "//pkgs.dev.azure.com/EJOT-Dev/_packaging/ejot-packages/npm/:email=$mail" >> ~/.npmrc
 	echo "; end auth token" >> ~/.npmrc
-	
-	npm i -g ejot-cli
 fi
 
 touch ~/.configured
