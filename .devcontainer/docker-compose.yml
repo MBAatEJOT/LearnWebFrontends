@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-    - /var/run/docker.sock:/var/run/docker-host.sock
-    - ..:/workspaces:cached
+      - /var/run/docker.sock:/var/run/docker-host.sock
+      - ..:/workspaces:cached
     network_mode: host
     command: sleep infinity
