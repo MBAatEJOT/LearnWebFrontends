@@ -5,20 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        USER_ID: 1000
-        USER_GID: 1000
     volumes:
-    - /var/run/docker.sock:/var/run/docker-host.sock
-    - ..:/workspaces:cached
-    - shareddata:/tmp/host
-    environment:
-    - FULL_NAME
-    - USER_MAIL
-    - TOKEN_AZURE
-    - TOKEN_SEQ_LEARNWEBFRONTENDS
+      - /var/run/docker.sock:/var/run/docker-host.sock
+      - ..:/workspaces:cached
     network_mode: host
     command: sleep infinity
-volumes:
-  shareddata:
-    external: true

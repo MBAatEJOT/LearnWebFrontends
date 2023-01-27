@@ -1,9 +1,10 @@
 {
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
-  "workspaceFolder": "/workspaces",
   "remoteEnv": {
-    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
+		"FULL_NAME": "${localEnv:FULL_NAME}",
+		"USER_MAIL": "${localEnv:USER_MAIL}"
   },
   "extensions": [
     "ms-azuretools.vscode-docker",
@@ -16,7 +17,9 @@
     "hookyqr.beautify",
     "dbaeumer.vscode-eslint"
   ],
-  "forwardPorts": [],
-  "postCreateCommand": "/bin/bash /conf/artifacts.sh",
+  "forwardPorts": [
+    4200
+  ],
+  "postCreateCommand": "/bin/bash /conf/setup.sh",
   "name": "LearnWebFrontends"
 }
